@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Principles of Marketing — Final Exam Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #f5efe4;
+    --cream: #faf6ed;
+    --ink: #1a2332;
+    --ink-soft: #2d3a4d;
+    --burgundy: #8b2635;
+    --burgundy-soft: #a84556;
+    --mustard: #d4a04a;
+    --mustard-soft: #e8c278;
+    --sage: #6b8e5a;
+    --coral: #e07856;
+    --paper: #efe7d6;
+    --line: #1a233220;
+    --shadow: 0 2px 0 var(--ink);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+  body {
+    font-family: 'Manrope', system-ui, sans-serif;
+    background: var(--ivory);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(212,160,74,0.08) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(139,38,53,0.06) 0%, transparent 40%);
+    background-attachment: fixed;
+  }
+
+  .display { font-family: 'Fraunces', 'Playfair Display', Georgia, serif; font-weight: 500; letter-spacing: -0.02em; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  /* ============ NAV ============ */
+  nav.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--cream);
+    border-bottom: 1.5px solid var(--ink);
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    backdrop-filter: blur(6px);
+  }
+  nav .brand {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  nav .brand::before {
+    content: "";
+    width: 12px; height: 12px;
+    background: var(--burgundy);
+    border-radius: 50%;
+    display: inline-block;
+  }
+  nav .chips {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    flex: 1;
+    scrollbar-width: none;
+  }
+  nav .chips::-webkit-scrollbar { display: none; }
+  nav .chip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    padding: 6px 12px;
+    border: 1.5px solid var(--ink);
+    background: var(--ivory);
+    color: var(--ink);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.15s;
+    cursor: pointer;
+  }
+  nav .chip:hover { background: var(--ink); color: var(--cream); transform: translate(-1px,-1px); box-shadow: 2px 2px 0 var(--ink); }
+  nav .chip.active { background: var(--burgundy); color: var(--cream); border-color: var(--burgundy); }
+
+  .progress-track {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: transparent;
+    z-index: 99;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--burgundy), var(--mustard));
+    width: 0%;
+    transition: width 0.2s;
+  }
+
+  /* ============ LAYOUT ============ */
+  main { max-width: 1200px; margin: 0 auto; padding: 40px 28px 120px; }
+
+  section.chapter { margin-top: 80px; padding-top: 40px; border-top: 1.5px dashed var(--ink); }
+  section.chapter:first-of-type { border-top: none; margin-top: 20px; }
+
+  .chapter-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 32px;
+    align-items: end;
+    margin-bottom: 48px;
+  }
+  .chapter-number {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(100px, 14vw, 180px);
+    line-height: 0.8;
+    color: var(--burgundy);
+    letter-spacing: -0.04em;
+    font-style: italic;
+  }
+  .chapter-number sub {
+    font-size: 0.25em;
+    font-style: normal;
+    color: var(--ink);
+    font-weight: 500;
+    vertical-align: top;
+    display: block;
+    margin-top: 8px;
+    letter-spacing: 0.1em;
+  }
+  .chapter-title { font-size: clamp(28px, 4vw, 46px); line-height: 1.05; max-width: 600px; }
+  .chapter-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--mustard);
+    margin-top: 16px;
+  }
+  .chapter-lead {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-soft);
+    margin-top: 14px;
+    max-width: 600px;
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 60px 48px;
+    margin: -40px -28px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 300px; height: 300px;
+    background: var(--mustard);
+    border-radius: 50%;
+    opacity: 0.15;
+  }
+  .hero-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--mustard);
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(44px, 7vw, 88px);
+    font-weight: 500;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+  }
+  .hero-title em { font-style: italic; color: var(--mustard); font-weight: 400; }
+  .hero-sub { font-size: 18px; max-width: 620px; opacity: 0.85; margin-bottom: 30px; }
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(250,246,237,0.2);
+    padding-top: 24px;
+  }
+  .hero-stat .n { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 600; color: var(--mustard); }
+  .hero-stat .l { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; opacity: 0.7; }
+
+  /* ============ SECTION HEADERS ============ */
+  h3.sub {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 40px 0 20px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  h3.sub::before {
+    content: "§";
+    color: var(--burgundy);
+    font-weight: 700;
+  }
+
+  /* ============ CONCEPT CARDS ============ */
+  .concept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .concept {
+    background: var(--cream);
+    border: 1.5px solid var(--ink);
+    padding: 20px;
+    position: relative;
+    transition: transform 0.15s;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .concept:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--ink); }
+  .concept .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--burgundy);
+    margin-bottom: 8px;
+  }
+  .concept h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.25;
+  }
+  .concept p { font-size: 14px; color: var(--ink-soft); line-height: 1.55; }
+
+  /* ============ FLASHCARDS ============ */
+  .flashcards-intro {
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    padding: 16px 20px;
+    margin: 24px 0 16px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .flashcards-intro .icon {
+    width: 32px; height: 32px;
+    background: var(--mustard);
+    border: 1.5px solid var(--ink);
+    display: grid;
+    place-items: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .flashcards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+  }
+  .flashcard {
+    height: 160px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+  .flashcard-inner {
+    position: relative;
+    width: 100%; height: 100%;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+  }
+  .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+  .flashcard-front, .flashcard-back {
+    position: absolute;
+    width: 100%; height: 100%;
+    backface-visibility: hidden;
+    border: 1.5px solid var(--ink);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .flashcard-front {
+    background: var(--burgundy);
+    color: var(--cream);
+    align-items: center;
+    text-align: center;
+  }
+  .flashcard-front .term-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--mustard);
+    margin-bottom: 10px;
+  }
+  .flashcard-front .term {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .flashcard-front .flip-hint {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    opacity: 0.6;
+    margin-top: 10px;
+  }
+  .flashcard-back {
+    background: var(--cream);
+    transform: rotateY(180deg);
+    font-size: 13px;
+    color: var(--ink-soft);
+    overflow-y: auto;
+    line-height: 1.55;
+  }
+  .flashcard-back strong { color: var(--ink); }
+
+  /* ============ DIAGRAM CONTAINERS ============ */
+  .diagram {
+    background: var(--cream);
+    border: 1.5px solid var(--ink);
+    padding: 28px;
+    margin: 24px 0;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .diagram-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--burgundy);
+    margin-bottom: 8px;
+  }
+  .diagram-heading {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .diagram svg { width: 100%; height: auto; display: block; }
+
+  /* ============ COMPARE TABLE ============ */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .compare > div {
+    border: 1.5px solid var(--ink);
+    padding: 20px;
+  }
+  .compare .left { background: var(--sage); color: var(--cream); }
+  .compare .right { background: var(--coral); color: var(--cream); }
+  .compare h4 { font-family: 'Fraunces', serif; font-size: 20px; margin-bottom: 10px; font-weight: 600; }
+  .compare ul { list-style: none; }
+  .compare li { padding: 4px 0; font-size: 14px; display: flex; gap: 8px; }
+  .compare li::before { content: "→"; opacity: 0.7; }
+
+  /* ============ TIMELINE / PROCESS ============ */
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin: 24px 0;
+    position: relative;
+  }
+  .step {
+    background: var(--cream);
+    border: 1.5px solid var(--ink);
+    padding: 16px 12px;
+    position: relative;
+  }
+  .step-num {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--burgundy);
+    font-style: italic;
+    line-height: 0.9;
+  }
+  .step-name { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 600; margin-top: 6px; }
+  .step-desc { font-size: 12px; color: var(--ink-soft); margin-top: 6px; line-height: 1.4; }
+
+  /* ============ QUIZ ============ */
+  .quiz-section {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 60px 48px;
+    margin: 80px -28px 0;
+    position: relative;
+  }
+  .quiz-section h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 48px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  .quiz-section h2 em { color: var(--mustard); font-style: italic; }
+  .quiz-section .quiz-lead {
+    font-size: 17px;
+    opacity: 0.85;
+    margin-bottom: 32px;
+    max-width: 600px;
+  }
+  .question {
+    background: var(--ink-soft);
+    border: 1px solid rgba(250,246,237,0.15);
+    padding: 24px;
+    margin-bottom: 16px;
+    border-radius: 2px;
+  }
+  .question .q-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--mustard);
+    margin-bottom: 6px;
+  }
+  .question .q-text {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    line-height: 1.4;
+    margin-bottom: 16px;
+  }
+  .options { display: flex; flex-direction: column; gap: 8px; }
+  .option {
+    background: transparent;
+    border: 1px solid rgba(250,246,237,0.3);
+    padding: 12px 16px;
+    color: var(--cream);
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .option:hover { background: rgba(250,246,237,0.08); border-color: var(--mustard); }
+  .option.selected { background: var(--burgundy); border-color: var(--burgundy); }
+  .option.correct { background: var(--sage); border-color: var(--sage); }
+  .option.incorrect { background: var(--burgundy); border-color: var(--burgundy); }
+  .option .letter {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 12px;
+    opacity: 0.7;
+  }
+  .explanation {
+    margin-top: 12px;
+    padding: 12px 16px;
+    background: rgba(212,160,74,0.15);
+    border-left: 3px solid var(--mustard);
+    font-size: 13px;
+    display: none;
+  }
+  .explanation.show { display: block; }
+  .explanation strong { color: var(--mustard); font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; display: block; margin-bottom: 4px; }
+
+  .quiz-submit {
+    background: var(--mustard);
+    color: var(--ink);
+    border: 2px solid var(--mustard);
+    padding: 16px 32px;
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 24px;
+    transition: all 0.15s;
+    letter-spacing: 0.01em;
+  }
+  .quiz-submit:hover { background: transparent; color: var(--mustard); }
+  .quiz-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .quiz-results {
+    display: none;
+    background: var(--cream);
+    color: var(--ink);
+    padding: 40px;
+    margin-top: 24px;
+    border: 2px solid var(--mustard);
+  }
+  .quiz-results.show { display: block; }
+  .score-display {
+    font-family: 'Fraunces', serif;
+    font-size: 64px;
+    font-weight: 700;
+    color: var(--burgundy);
+    line-height: 1;
+  }
+  .score-display sub { font-size: 0.4em; color: var(--ink-soft); font-weight: 400; }
+  .score-message {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 22px;
+    margin-top: 12px;
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+  }
+  footer::before {
+    content: "◇ ◇ ◇";
+    display: block;
+    color: var(--burgundy);
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+
+  /* ============ UTILITIES ============ */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+  }
+  @media (max-width: 700px) {
+    .two-col, .compare { grid-template-columns: 1fr; }
+    .chapter-header { grid-template-columns: 1fr; gap: 12px; align-items: start; }
+    .chapter-number { font-size: 90px; }
+    .quiz-section { padding: 40px 24px; }
+    main { padding: 20px 20px 80px; }
+    .hero { padding: 40px 24px; margin: -20px -20px 30px; }
+  }
+
+  .pill {
+    display: inline-block;
+    background: var(--mustard);
+    color: var(--ink);
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    margin: 0 4px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.05em;
+  }
+  .pill.dark { background: var(--ink); color: var(--cream); }
+  .pill.burgundy { background: var(--burgundy); color: var(--cream); }
+
+  p.body { margin: 12px 0; font-size: 15px; }
+  p.body strong { color: var(--burgundy); }
+</style>
+</head>
+<body>
+
+<!-- Progress bar -->
+<div class="progress-track"><div class="progress-fill" id="progressBar"></div></div>
+
+<!-- Nav -->
+<nav class="topnav">
+  <div class="brand">Marketing <span class="display" style="font-style:italic;">Review</span></div>
+  <div class="chips">
+    <a href="#ch8" class="chip">Ch 8 · NPD</a>
+    <a href="#ch9" class="chip">Ch 9 · Pricing</a>
+    <a href="#ch10" class="chip">Ch 10 · Channels</a>
+    <a href="#ch11" class="chip">Ch 11 · Retail</a>
+    <a href="#ch12" class="chip">Ch 12 · Ads & PR</a>
+    <a href="#ch13" class="chip">Ch 13 · Sales</a>
+    <a href="#ch14" class="chip">Ch 14 · Direct</a>
+    <a href="#quiz" class="chip" style="background:var(--mustard);border-color:var(--mustard);">★ Practice Exam</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">PRINCIPLES OF MARKETING · FINAL EXAM REVIEW</div>
+  <h1 class="hero-title">Everything on<br>the <em>exam,</em> distilled.</h1>
+  <p class="hero-sub">A visual, interactive review of chapters 8 through 14 — new product development, pricing, channels, retailing, promotion mix, and direct marketing. Click the flashcards, study the diagrams, then test yourself.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="n">7</div><div class="l">CHAPTERS</div></div>
+    <div class="hero-stat"><div class="n">60+</div><div class="l">KEY TERMS</div></div>
+    <div class="hero-stat"><div class="n">25</div><div class="l">PRACTICE QUESTIONS</div></div>
+    <div class="hero-stat"><div class="n">∞</div><div class="l">REVIEWS</div></div>
+  </div>
+</div>
+
+<!-- ============ CHAPTER 8 ============ -->
+<section class="chapter" id="ch8">
+  <div class="chapter-header">
+    <div class="chapter-number">08<sub>CHAPTER</sub></div>
+    <div>
+      <h2 class="chapter-title display">New Products & the Product Life-Cycle</h2>
+      <p class="chapter-lead">How firms create new products, and how those products rise, peak, and decline.</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Core Concepts</h3>
+  <div class="concept-grid">
+    <div class="concept">
+      <div class="tag">DEFINITION</div>
+      <h4>New-Product Development</h4>
+      <p>Developing <em>original</em> products, product <em>improvements</em>, product <em>modifications</em>, and new <em>brands</em> through the firm's own efforts.</p>
+    </div>
+    <div class="concept">
+      <div class="tag">WHY FAILURES HAPPEN</div>
+      <h4>Top 5 Reasons New Products Fail</h4>
+      <p>Overestimating market size · design problems · incorrect pricing/positioning · high development costs · competitor reaction.</p>
+    </div>
+    <div class="concept">
+      <div class="tag">TWO IDEA SOURCES</div>
+      <h4>Internal vs. External Ideas</h4>
+      <p><strong>Internal:</strong> R&D, intrapreneurs, employees. <strong>External:</strong> customers, competitors, distributors, suppliers, crowdsourcing.</p>
+    </div>
+  </div>
+
+  <!-- NPD Process diagram -->
+  <div class="diagram">
+    <div class="diagram-title">FIGURE 8.1 · MAJOR STAGES IN</div>
+    <div class="diagram-heading">The New-Product Development Process</div>
+    <div class="process-steps">
+      <div class="step"><div class="step-num">1</div><div class="step-name">Idea Generation</div><div class="step-desc">Systematic search from internal & external sources.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-name">Idea Screening</div><div class="step-desc">Spot good ideas & drop poor ones ASAP.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-name">Concept Dev & Testing</div><div class="step-desc">Test concept with target consumers.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-name">Marketing Strategy</div><div class="step-desc">Define target, positioning, sales, share, profit goals.</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-name">Business Analysis</div><div class="step-desc">Review sales, costs & profit projections.</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-name">Product Development</div><div class="step-desc">Turn concept into a physical product.</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-name">Test Marketing</div><div class="step-desc">Product tested in realistic market settings.</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-name">Commercialization</div><div class="step-desc">Launch — introducing the new product to the market.</div></div>
+    </div>
+  </div>
+
+  <h3 class="sub">Product Life-Cycle (PLC)</h3>
+  <p class="body">The PLC shows the course of a product's sales and profits over its lifetime. It has five stages: <strong>product development → introduction → growth → maturity → decline.</strong></p>
+
+  <!-- PLC Curve SVG -->
+  <div class="diagram">
+    <div class="diagram-title">FIGURE 8.2 · PRODUCT LIFE-CYCLE CURVE</div>
+    <div class="diagram-heading">Sales & Profits Across Stages</div>
+    <svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg">
+      <!-- axes -->
+      <line x1="60" y1="300" x2="760" y2="300" stroke="#1a2332" stroke-width="1.5"/>
+      <line x1="60" y1="40" x2="60" y2="300" stroke="#1a2332" stroke-width="1.5"/>
+      <text x="30" y="170" font-family="JetBrains Mono" font-size="10" fill="#1a2332" transform="rotate(-90,30,170)">SALES / PROFIT</text>
+      <text x="380" y="330" font-family="JetBrains Mono" font-size="10" fill="#1a2332">TIME →</text>
+
+      <!-- stage dividers -->
+      <line x1="200" y1="40" x2="200" y2="300" stroke="#1a2332" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.4"/>
+      <line x1="360" y1="40" x2="360" y2="300" stroke="#1a2332" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.4"/>
+      <line x1="540" y1="40" x2="540" y2="300" stroke="#1a2332" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.4"/>
+      <line x1="680" y1="40" x2="680" y2="300" stroke="#1a2332" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.4"/>
+
+      <!-- stage labels -->
+      <text x="130" y="30" font-family="Fraunces" font-size="13" font-weight="600" fill="#1a2332" text-anchor="middle">Product Dev</text>
+      <text x="280" y="30" font-family="Fraunces" font-size="13" font-weight="600" fill="#1a2332" text-anchor="middle">Introduction</text>
+      <text x="450" y="30" font-family="Fraunces" font-size="13" font-weight="600" fill="#1a2332" text-anchor="middle">Growth</text>
+      <text x="610" y="30" font-family="Fraunces" font-size="13" font-weight="600" fill="#1a2332" text-anchor="middle">Maturity</text>
+      <text x="720" y="30" font-family="Fraunces" font-size="13" font-weight="600" fill="#1a2332" text-anchor="middle">Decline</text>
+
+      <!-- Sales curve -->
+      <path d="M 60 290 Q 130 295 200 280 Q 280 260 360 170 Q 450 90 540 80 Q 620 85 680 120 Q 720 150 760 200"
+            fill="none" stroke="#8b2635" stroke-width="3"/>
+      <text x="470" y="110" font-family="Fraunces" font-size="14" font-weight="600" fill="#8b2635" font-style="italic">Sales</text>
+
+      <!-- Profit curve -->
+      <path d="M 60 290 Q 130 310 200 320 Q 280 300 360 220 Q 450 160 540 150 Q 620 160 680 190 Q 720 220 760 260"
+            fill="none" stroke="#d4a04a" stroke-width="3" stroke-dasharray="6,4"/>
+      <text x="470" y="180" font-family="Fraunces" font-size="14" font-weight="600" fill="#b8862e" font-style="italic">Profits</text>
+
+      <!-- zero line -->
+      <line x1="60" y1="300" x2="760" y2="300" stroke="#1a2332" stroke-width="0.5" stroke-dasharray="2,2" opacity="0.5"/>
+      <text x="50" y="303" font-family="JetBrains Mono" font-size="9" fill="#1a2332" text-anchor="end">0</text>
+    </svg>
+  </div>
+
+  <h3 class="sub">Strategies by PLC Stage</h3>
+  <div class="flashcards-intro">
+    <div class="icon">!</div>
+    <div>Click any card to flip it and see the strategy details.</div>
+  </div>
+
+  <div class="flashcards">
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <div class="term-label">STAGE 1</div>
+          <div class="term">Introduction</div>
+          <div class="flip-hint">CLICK TO FLIP</div>
+        </div>
+        <div class="flashcard-back">
+          <strong>Low sales, high cost per customer, negative profits.</strong> Customers = innovators. Few competitors. Objective: create product awareness & trial. Product: offer basic. Price: cost-plus. Distribution: selective. Ads: build awareness among early adopters & dealers.
+        </div>
+      </div>
+    </div>
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <div class="term-label">STAGE 2</div>
+          <div class="term">Growth</div>
+          <div class="flip-hint">CLICK TO FLIP</div>
+        </div>
+        <div class="flashcard-back">
+          <strong>Rapidly rising sales, rising profits.</strong> Customers = early adopters. Growing number of competitors. Objective: maximize market share. Product: offer extensions, service, warranty. Price: penetrate market. Distribution: intensive. Ads: build awareness in mass market.
+        </div>
+      </div>
+    </div>
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <div class="term-label">STAGE 3</div>
+          <div class="term">Maturity</div>
+          <div class="flip-hint">CLICK TO FLIP</div>
+        </div>
+        <div class="flashcard-back">
+          <strong>Peak sales, low cost per customer, high profits.</strong> Customers = middle majority. Competitors stable/declining. Objective: maximize profit while defending share. Strategies: <em>modify the market</em>, <em>modify the product</em>, <em>modify the marketing mix</em>.
+        </div>
+      </div>
+    </div>
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <div class="term-label">STAGE 4</div>
+          <div class="term">Decline</div>
+          <div class="flip-hint">CLICK TO FLIP</div>
+        </div>
+        <div class="flashcard-back">
+          <strong>Declining sales, declining profits.</strong> Customers = laggards. Declining competitors. Objective: reduce expenditures & milk the brand. Phase out weak items, cut price, reduce advertising to minimum, go selective on distribution.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 9 ============ -->
+<section class="chapter" id="ch9">
+  <div class="chapter-header">
+    <div class="chapter-number">09<sub>CHAPTER</sub></div>
+    <div>
+      <h2 class="chapter-title display">Pricing — Capturing Customer Value</h2>
+      <p class="chapter-lead">The only element of the marketing mix that produces <em>revenue</em> — all others produce costs.</p>
+    </div>
+  </div>
+
+  <h3 class="sub">The Three Major Pricing Strategies</h3>
+
+  <div class="diagram">
+    <div class="diagram-title">FIGURE 9.1 · THE PRICING CORRIDOR</div>
+    <div class="diagram-heading">Price Ceiling & Price Floor</div>
+    <svg viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg">
+      <!-- Ceiling -->
+      <rect x="40" y="30" width="720" height="55" fill="#8b2635" stroke="#1a2332" stroke-width="1.5"/>
+      <text x="400" y="55" font-family="Fraunces" font-size="16" font-weight="600" fill="#faf6ed" text-anchor="middle">PRICE CEILING · Customer value perceptions</text>
+      <text x="400" y="75" font-family="JetBrains Mono" font-size="10" fill="#faf6ed" text-anchor="middle">"No demand above this price"</text>
+
+      <!-- Middle zone -->
+      <rect x="40" y="100" width="720" height="80" fill="#f5efe4" stroke="#1a2332" stroke-width="1.5"/>
+      <text x="400" y="128" font-family="Fraunces" font-size="15" font-weight="600" fill="#1a2332" text-anchor="middle">THE PRICING SWEET SPOT</text>
+      <text x="400" y="148" font-family="JetBrains Mono" font-size="10" fill="#1a2332" text-anchor="middle">Other internal/external considerations:</text>
+      <text x="400" y="164" font-family="JetBrains Mono" font-size="9" fill="#2d3a4d" text-anchor="middle">competitors' strategies · nature of market &amp; demand · other environmental factors</text>
+
+      <!-- Floor -->
+      <rect x="40" y="195" width="720" height="55" fill="#6b8e5a" stroke="#1a2332" stroke-width="1.5"/>
+      <text x="400" y="220" font-family="Fraunces" font-size="16" font-weight="600" fill="#faf6ed" text-anchor="middle">PRICE FLOOR · Product costs</text>
+      <text x="400" y="240" font-family="JetBrains Mono" font-size="10" fill="#faf6ed" text-anchor="middle">"No profits below this price"</text>
+    </svg>
+  </div>
+
+  <div class="concept-grid">
+    <div class="concept">
+      <div class="tag">STRATEGY 1</div>
+      <h4>Customer Value-Based</h4>
+      <p>Price based on <strong>buyers' perceptions of value</strong>, not on the seller's cost. Two flavors: <em>good-value pricing</em> (right combo of quality + service at fair price) and <em>value-added pricing</em> (add features/services to differentiate & charge more).</p>
+    </div>
+    <div class="concept">
+      <div class="tag">STRATEGY 2</div>
+      <h4>Cost-Based</h4>
+      <p>Setting prices based on cost of producing, distributing, and selling the product plus a fair rate of return. <em>Cost-plus</em> is simplest; <em>break-even</em> / <em>target profit</em> pricing sets price to cover costs and hit a profit target.</p>
+    </div>
+    <div class="concept">
+      <div class="tag">STRATEGY 3</div>
+      <h4>Competition-Based</h4>
+      <p>Setting prices based on competitors' strategies, costs, prices, and market offerings. Price must reflect the <em>value delivered relative to competitors</em>.</p>
+    </div>
+  </div>
+
+  <h3 class="sub">New-Product Pricing</h3>
+  <div class="compare">
+    <div class="left">
+      <h4>Market-Skimming</h4>
+      <ul>
+        <li>Set a <strong>high initial price</strong> to "skim" revenue from layers of buyers willing to pay more</li>
+        <li>Product quality & image must support higher price</li>
+        <li>Costs of producing smaller volume can't be so high they cancel out the higher price</li>
+        <li>Competitors shouldn't be able to enter easily</li>
+        <li>Example: Apple iPhone launches</li>
+      </ul>
+    </div>
+    <div class="right">
+      <h4>Market-Penetration</h4>
+      <ul>
+        <li>Set a <strong>low initial price</strong> to attract a large number of buyers quickly & win big market share</li>
+        <li>Market must be highly price-sensitive</li>
+        <li>Production & distribution costs must fall as sales volume increases</li>
+        <li>Low price must help keep out competition</li>
+        <li>Example: Walmart, IKEA</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="sub">Product-Mix Pricing · 5 Types</h3>
+  <div class="flashcards">
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-front"><div class="term-label">TYPE 1</div><div class="term">Product Line</div><div class="flip-hint">CLICK TO FLIP</div></div>
+        <div class="flashcard-back">Setting price steps between product line items based on <strong>cost differences</strong>, <strong>customer evaluations</strong>, and <strong>competitor prices</strong>. Example: Rolex sells Oyster Perpetual up through Cellini Prince tiers.</div>
+      </div>
+    </div>
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-front"><div class="term-label">TYPE 2</div><div class="term">Optional-Product</div><div class="flip-hint">CLICK TO FLIP</div></div>
+        <div class="flashcard-back">Pricing of <strong>optional or accessory products</strong> sold alongside the main product. Example: car sold with options like leather seats, sunroof, premium sound system.</div>
+      </div>
+    </div>
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-front"><div class="term-label">TYPE 3</div><div class="term">Captive-Product</div><div class="flip-hint">CLICK TO FLIP</div></div>
+        <div class="flashcard-back">Pricing products that <strong>must be used</strong> with a main product. Example: razors (cheap) + blades (expensive); printers + ink cartridges; game consoles + games.</div>
+      </div>
+    </div>
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-front"><div class="term-label">TYPE 4</div><div class="term">By-Product</div><div class="flip-hint">CLICK TO FLIP</div></div>
+        <div class="flashcard-back">Setting a price for <strong>by-products</strong> to make the main product's price more competitive. Example: zoos selling composted animal waste.</div>
+      </div>
+    </div>
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-front"><div class="term-label">TYPE 5</div><div class="term">Product Bundle</div><div class="flip-hint">CLICK TO FLIP</div></div>
+        <div class="flashcard-back">Combining several products & offering the bundle at a <strong>reduced price</strong>. Example: fast-food combo meals, cable + internet + phone bundles.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub">Price Adjustment Strategies · 7 Forms</h3>
+  <div class="concept-grid">
+    <div class="concept"><div class="tag">ADJUSTMENT 1</div><h4>Discount & Allowance</h4><p>Cash discounts, quantity discounts, functional (trade) discounts, seasonal discounts, trade-in allowances, promotional allowances.</p></div>
+    <div class="concept"><div class="tag">ADJUSTMENT 2</div><h4>Segmented Pricing</h4><p>Selling at two+ prices, where difference is <em>not</em> based on costs: customer-segment, product-form, location, time pricing.</p></div>
+    <div class="concept"><div class="tag">ADJUSTMENT 3</div><h4>Psychological Pricing</h4><p>Price says something about the product — e.g., $9.99 feels meaningfully cheaper than $10.00; high prices signal quality.</p></div>
+    <div class="concept"><div class="tag">ADJUSTMENT 4</div><h4>Promotional Pricing</h4><p>Discounts, special-event pricing, cash rebates, low-interest financing, longer warranties, free maintenance.</p></div>
+    <div class="concept"><div class="tag">ADJUSTMENT 5</div><h4>Geographical Pricing</h4><p>FOB-origin · uniform-delivered · zone · basing-point · freight-absorption pricing.</p></div>
+    <div class="concept"><div class="tag">ADJUSTMENT 6</div><h4>Dynamic Pricing</h4><p>Adjusting prices continually to meet needs of individual customers & situations — especially prevalent online (e.g., Priceline, Uber surge).</p></div>
+    <div class="concept"><div class="tag">ADJUSTMENT 7</div><h4>International Pricing</h4><p>Price depends on economic conditions, competition, laws, regulations — plus channels & buyer perceptions in each country.</p></div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 10 ============ -->
+<section class="chapter" id="ch10">
+  <div class="chapter-header">
+    <div class="chapter-number">10<sub>CHAPTER</sub></div>
+    <div>
+      <h2 class="chapter-title display">Marketing Channels & Value Delivery</h2>
+      <p class="chapter-lead">Getting the product from producer to the final consumer.</p>
+    </div>
+  </div>
+
+  <div class="concept-grid">
+    <div class="concept">
+      <div class="tag">KEY TERM</div>
+      <h4>Marketing Channel</h4>
+      <p>A <strong>set of interdependent organizations</strong> that help make a product or service available for use/consumption by the consumer or business user.</p>
+    </div>
+    <div class="concept">
+      <div class="tag">KEY TERM</div>
+      <h4>Value Delivery Network</h4>
+      <p>The <strong>company + suppliers + distributors + customers</strong> who partner to improve the performance of the entire system.</p>
+    </div>
+    <div class="concept">
+      <div class="tag">KEY TERM</div>
+      <h4>Supply Chain</h4>
+      <p><strong>Upstream:</strong> firms supplying raw materials/components. <strong>Downstream:</strong> channel partners linking firm to customer.</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Channel Levels — Direct vs. Indirect</h3>
+  <!-- Channel levels diagram -->
+  <div class="diagram">
+    <div class="diagram-title">FIGURE 10.1 · CONSUMER MARKETING CHANNELS</div>
+    <div class="diagram-heading">From Zero to Three Intermediary Levels</div>
+    <svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L9,3 z" fill="#1a2332"/>
+        </marker>
+      </defs>
+      <!-- Channel 1: Direct -->
+      <text x="20" y="40" font-family="JetBrains Mono" font-size="11" fill="#8b2635" font-weight="600">CHANNEL 1 (DIRECT)</text>
+      <rect x="20" y="50" width="110" height="40" fill="#1a2332"/>
+      <text x="75" y="75" font-family="Fraunces" font-size="13" fill="#faf6ed" text-anchor="middle" font-weight="600">Producer</text>
+      <line x1="130" y1="70" x2="600" y2="70" stroke="#1a2332" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <rect x="620" y="50" width="140" height="40" fill="#d4a04a" stroke="#1a2332" stroke-width="1.5"/>
+      <text x="690" y="75" font-family="Fraunces" font-size="13" fill="#1a2332" text-anchor="middle" font-weight="600">Consumer</text>
+
+      <!-- Channel 2: 1 intermediary -->
+      <text x="20" y="125" font-family="JetBrains Mono" font-size="11" fill="#8b2635" font-weight="600">CHANNEL 2 (1 LEVEL)</text>
+      <rect x="20" y="135" width="110" height="40" fill="#1a2332"/>
+      <text x="75" y="160" font-family="Fraunces" font-size="13" fill="#faf6ed" text-anchor="middle" font-weight="600">Producer</text>
+      <line x1="130" y1="155" x2="388" y2="155" stroke="#1a2332" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <rect x="400" y="135" width="110" height="40" fill="#6b8e5a" stroke="#1a2332" stroke-width="1.5"/>
+      <text x="455" y="160" font-family="Fraunces" font-size="13" fill="#faf6ed" text-anchor="middle" font-weight="600">Retailer</text>
+      <line x1="510" y1="155" x2="618" y2="155" stroke="#1a2332" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <rect x="620" y="135" width="140" height="40" fill="#d4a04a" stroke="#1a2332" stroke-width="1.5"/>
+      <text x="690" y="160" font-family="Fraunces" font-size="13" fill="#1a2332" text-anchor="middle" font-weight="600">Consumer</text>
+
+      <!-- Channel 3: 2 intermediaries -->
+      <text x="20" y="210" font-family="JetBrains Mono" font-size="11" fill="#8b2635" font-weight="600">CHANNEL 3 (2 LEVELS)</text>
+      <rect x="20" y="220" width="100" height="40" fill="#1a2332"/>
+      <text x="70" y="245" font-family="Fraunces" font-size="12" fill="#faf6ed" text-anchor="middle" font-weight="600">Producer</text>
+      <line x1="120" y1="240" x2="228" y2="240" stroke="#1a2332" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <rect x="240" y="220" width="110" height="40" fill="#8b2635" stroke="#1a2332" stroke-width="1.5"/>
+      <text x="295" y="245" font-family="Fraunces" font-size="12" fill="#faf6ed" text-anchor="middle" font-weight="600">Wholesaler</text>
+      <line x1="350" y1="240" x2="478" y2="240" stroke="#1a2332" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <rect x="490" y="220" width="100" height="40" fill="#6b8e5a" stroke="#1a2332" stroke-width="1.5"/>
+      <text x="540" y="245" font-family="Fraunces" font-size="12" fill="#faf6ed" text-anchor="middle" font-weight="600">Retailer</text>
+      <line x1="590" y1="240" x2="618" y2="240" stroke="#1a2332" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <rect x="620" y="220" width="140" height="40" fill="#d4a04a" stroke="#1a2332" stroke-width="1.5"/>
+      <text x="690" y="245" font-family="Fraunces" font-size="12" fill="#1a2332" text-anchor="middle" font-weight="600">Consumer</text>
+
+      <!-- Channel 4: 3 intermediaries -->
+      <text x="20" y="295" font-family="JetBrains Mono" font-size="11" fill="#8b2635" font-weight="600">CHANNEL 4 (3 LEVELS)</text>
+      <rect x="20" y="305" width="85" height="40" fill="#1a2332"/>
+      <text x="62" y="330" font-family="Fraunces" font-size="11" fill="#faf6ed" text-anchor="middle" font-weight="600">Producer</text>
+      <line x1="105" y1="325" x2="138" y2="325" stroke="#1a2332" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <rect x="150" y="305" width="95" height="40" fill="#8b2635" stroke="#1a2332" stroke-width="1.5"/>
+      <text x="197" y="330" font-family="Fraunces" font-size="11" fill="#faf6ed" text-anchor="middle" font-weight="600">Wholesaler</text>
+      <line x1="245" y1="325" x2="278" y2="325" stroke="#1a2332" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <rect x="290" y="305" width="95" height="40" fill="#e07856" stroke="#1a2332" stroke-width="1.5"/>
+      <text x="337" y="330" font-family="Fraunces" font-size="11" fill="#faf6ed" text-anchor="middle" font-weight="600">Jobber</text>
+      <line x1="385" y1="325" x2="418" y2="325" stroke="#1a2332" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <rect x="430" y="305" width="95" height="40" fill="#6b8e5a" stroke="#1a2332" stroke-width="1.5"/>
+      <text x="477" y="330" font-family="Fraunces" font-size="11" fill="#faf6ed" text-anchor="middle" font-weight="600">Retailer</text>
+      <line x1="525" y1="325" x2="618" y2="325" stroke="#1a2332" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <rect x="620" y="305" width="140" height="40" fill="#d4a04a" stroke="#1a2332" stroke-width="1.5"/>
+      <text x="690" y="330" font-family="Fraunces" font-size="12" fill="#1a2332" text-anchor="middle" font-weight="600">Consumer</text>
+    </svg>
+  </div>
+
+  <h3 class="sub">Channel Functions</h3>
+  <div class="two-col">
+    <div>
+      <p class="body"><strong>Transaction Completion</strong></p>
+      <div class="concept-grid" style="grid-template-columns:1fr;">
+        <div class="concept"><h4>Information</h4><p>Gathering & distributing marketing research & intelligence.</p></div>
+        <div class="concept"><h4>Promotion</h4><p>Developing & spreading persuasive communications.</p></div>
+        <div class="concept"><h4>Contact</h4><p>Finding & communicating with prospective buyers.</p></div>
+        <div class="concept"><h4>Matching</h4><p>Shaping offers to buyer's needs (manufacturing, grading, assembling, packaging).</p></div>
+        <div class="concept"><h4>Negotiation</h4><p>Reaching agreement on price & terms so ownership can transfer.</p></div>
+      </div>
+    </div>
+    <div>
+      <p class="body"><strong>Transaction Fulfillment</strong></p>
+      <div class="concept-grid" style="grid-template-columns:1fr;">
+        <div class="concept"><h4>Physical Distribution</h4><p>Transporting & storing goods.</p></div>
+        <div class="concept"><h4>Financing</h4><p>Acquiring & using funds to cover channel work costs.</p></div>
+        <div class="concept"><h4>Risk Taking</h4><p>Assuming the risks of carrying out the channel work.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub">Channel Behavior & Organization</h3>
+  <div class="concept-grid">
+    <div class="concept">
+      <div class="tag">CONFLICT TYPES</div>
+      <h4>Horizontal vs. Vertical Conflict</h4>
+      <p><strong>Horizontal:</strong> conflict among firms at the <em>same</em> level (e.g., two Ford dealers competing). <strong>Vertical:</strong> conflict between <em>different levels</em> of the same channel (e.g., Ford vs. its dealers).</p>
+    </div>
+    <div class="concept">
+      <div class="tag">SYSTEM · VMS</div>
+      <h4>Vertical Marketing System</h4>
+      <p>Producer, wholesaler & retailer act as a <em>unified system</em>. Three types: <strong>corporate</strong> (one ownership), <strong>contractual</strong> (franchise), <strong>administered</strong> (power of one large member).</p>
+    </div>
+    <div class="concept">
+      <div class="tag">SYSTEM · HMS</div>
+      <h4>Horizontal Marketing System</h4>
+      <p>Two+ companies at <em>one</em> level joining together to pursue a new marketing opportunity (e.g., McDonald's inside Walmart stores).</p>
+    </div>
+    <div class="concept">
+      <div class="tag">SYSTEM · MULTI</div>
+      <h4>Multichannel Distribution</h4>
+      <p>A single firm sets up two+ channels to reach one or more customer segments.</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Distribution Intensity — Pick One</h3>
+  <div class="flashcards">
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-front"><div class="term-label">INTENSITY 1</div><div class="term">Intensive</div><div class="flip-hint">CLICK TO FLIP</div></div>
+        <div class="flashcard-back">Stocking the product in <strong>as many outlets as possible.</strong> Used for <em>convenience goods</em> — candy, toothpaste, Coca-Cola. Goal: maximum availability.</div>
+      </div>
+    </div>
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-front"><div class="term-label">INTENSITY 2</div><div class="term">Exclusive</div><div class="flip-hint">CLICK TO FLIP</div></div>
+        <div class="flashcard-back">Giving a <strong>limited number of dealers exclusive rights</strong> to distribute in their territories. Used for <em>luxury & specialty goods</em> — Rolex, Lamborghini. Goal: strong image, high dealer support.</div>
+      </div>
+    </div>
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-front"><div class="term-label">INTENSITY 3</div><div class="term">Selective</div><div class="flip-hint">CLICK TO FLIP</div></div>
+        <div class="flashcard-back">Use <strong>more than one but fewer than all</strong> of the intermediaries willing to carry the product. Used for <em>shopping goods</em> — TVs, furniture, appliances.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 11 ============ -->
+<section class="chapter" id="ch11">
+  <div class="chapter-header">
+    <div class="chapter-number">11<sub>CHAPTER</sub></div>
+    <div>
+      <h2 class="chapter-title display">Retailing & Wholesaling</h2>
+      <p class="chapter-lead">The last-mile players who bring products to final buyers.</p>
+    </div>
+  </div>
+
+  <div class="concept-grid">
+    <div class="concept">
+      <div class="tag">DEFINITION</div>
+      <h4>Retailing</h4>
+      <p>All the activities involved in selling goods or services <strong>directly to final consumers</strong> for their personal, non-business use.</p>
+    </div>
+    <div class="concept">
+      <div class="tag">DEFINITION</div>
+      <h4>Wholesaling</h4>
+      <p>All activities involved in selling goods & services to those who buy <strong>for resale or business use</strong>.</p>
+    </div>
+    <div class="concept">
+      <div class="tag">EMERGING</div>
+      <h4>Shopper Marketing</h4>
+      <p>Using point-of-sale promotions & ads to extend brand equity to <strong>"the last mile"</strong> — encouraging favorable in-store purchase decisions.</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Types of Retailers — 4 Classification Axes</h3>
+  <p class="body">Retailers are classified by (1) <strong>amount of service</strong>, (2) <strong>product line</strong>, (3) <strong>relative prices</strong>, and (4) <strong>organizational approach</strong>.</p>
+
+  <!-- Retailer types by service level -->
+  <h3 class="sub">By Service Level</h3>
+  <div class="compare" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="left">
+      <h4>Self-Service</h4>
+      <p style="font-size:14px;">Customers do their own locate-compare-select. Lowest cost. Ex: discount stores, warehouse stores.</p>
+    </div>
+    <div style="background:var(--mustard); color:var(--ink); border:1.5px solid var(--ink); padding:20px;">
+      <h4 class="display" style="font-family:'Fraunces';font-weight:600;font-size:20px;margin-bottom:10px;">Limited-Service</h4>
+      <p style="font-size:14px;">More sales assistance; carry shopping goods requiring info. Ex: Sears, JCPenney.</p>
+    </div>
+    <div class="right">
+      <h4>Full-Service</h4>
+      <p style="font-size:14px;">Usually carry more specialty goods requiring assistance/advice. Highest cost. Ex: high-end specialty & department stores.</p>
+    </div>
+  </div>
+
+  <h3 class="sub">By Product Line</h3>
+  <div class="concept-grid">
+    <div class="concept"><div class="tag">NARROW + DEEP</div><h4>Specialty Store</h4><p>Narrow product line, deep assortment within that line. Example: Athleta, Foot Locker.</p></div>
+    <div class="concept"><div class="tag">WIDE VARIETY</div><h4>Department Store</h4><p>Wide variety of product lines, each operated as a separate department. Example: Macy's, Nordstrom.</p></div>
+    <div class="concept"><div class="tag">LOW-MARGIN HIGH-VOLUME</div><h4>Supermarket</h4><p>Large, low-cost, low-margin, high-volume, self-service store carrying wide variety of grocery & household products.</p></div>
+    <div class="concept"><div class="tag">SMALL + LONG HOURS</div><h4>Convenience Store</h4><p>Small, near residential areas, open long hours 7 days a week, limited line of high-turnover goods. Example: 7-Eleven.</p></div>
+    <div class="concept"><div class="tag">MEGA-GROCERY</div><h4>Superstore</h4><p>Much larger than regular supermarket; offers large assortment of routinely purchased food + non-food + services.</p></div>
+    <div class="concept"><div class="tag">DEEP SPECIALTY</div><h4>Category Killer</h4><p>Giant specialty store carrying very <em>deep</em> assortment of a particular line. Example: Best Buy, Home Depot.</p></div>
+    <div class="concept"><div class="tag">SERVICE</div><h4>Service Retailer</h4><p>Product line is actually a service: hotels, airlines, banks, colleges, hospitals.</p></div>
+  </div>
+
+  <h3 class="sub">By Relative Prices</h3>
+  <div class="concept-grid">
+    <div class="concept"><div class="tag">LOWER PRICES</div><h4>Discount Store</h4><p>Sells standard merchandise at lower prices/margins in return for higher volume. Example: Walmart, Target.</p></div>
+    <div class="concept"><div class="tag">BELOW-WHOLESALE</div><h4>Off-Price Retailer</h4><p>Buys at less-than-regular wholesale prices and sells at less than retail. Includes <em>factory outlets</em>, <em>independents</em>, <em>warehouse clubs</em> (Costco).</p></div>
+  </div>
+
+  <h3 class="sub">By Organizational Approach</h3>
+  <div class="concept-grid">
+    <div class="concept"><div class="tag">CHAIN · COMMON OWN</div><h4>Corporate Chain</h4><p>Two or more outlets commonly owned and controlled. Example: Gap, Starbucks.</p></div>
+    <div class="concept"><div class="tag">CHAIN · INDEP</div><h4>Voluntary Chain</h4><p>Wholesaler-sponsored group of independent retailers engaged in group buying & common merchandising.</p></div>
+    <div class="concept"><div class="tag">COOP</div><h4>Retailer Co-op</h4><p>Group of independent retailers banding together to set up a jointly owned wholesale operation.</p></div>
+    <div class="concept"><div class="tag">CONTRACT</div><h4>Franchise</h4><p>Contractual association between franchisor & independent franchisees who buy the right to own & operate units. Example: McDonald's, Subway.</p></div>
+  </div>
+
+  <h3 class="sub">Retailer Marketing Decisions</h3>
+  <div class="process-steps">
+    <div class="step"><div class="step-num">1</div><div class="step-name">Segmentation</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-name">Targeting</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-name">Differentiation</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-name">Positioning</div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-name">Retail Mix</div><div class="step-desc">Product · Price · Promotion · Place</div></div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 12 ============ -->
+<section class="chapter" id="ch12">
+  <div class="chapter-header">
+    <div class="chapter-number">12<sub>CHAPTER</sub></div>
+    <div>
+      <h2 class="chapter-title display">Advertising & Public Relations</h2>
+      <p class="chapter-lead">Communicating customer value to geographically dispersed audiences.</p>
+    </div>
+  </div>
+
+  <div class="concept">
+    <div class="tag">CORE DEFINITION</div>
+    <h4>Promotion Mix</h4>
+    <p>The <strong>specific blend of promotion tools</strong> a company uses to persuasively communicate customer value & build customer relationships.</p>
+  </div>
+
+  <h3 class="sub">The 5 Major Promotion Tools</h3>
+  <!-- Promotion Mix Wheel SVG -->
+  <div class="diagram">
+    <div class="diagram-title">THE PROMOTION MIX</div>
+    <div class="diagram-heading">Five tools that communicate customer value</div>
+    <svg viewBox="0 0 800 440" xmlns="http://www.w3.org/2000/svg">
+      <!-- Center circle -->
+      <circle cx="400" cy="220" r="70" fill="#1a2332"/>
+      <text x="400" y="215" font-family="Fraunces" font-size="16" font-weight="700" fill="#faf6ed" text-anchor="middle">PROMOTION</text>
+      <text x="400" y="235" font-family="Fraunces" font-size="16" font-weight="700" fill="#d4a04a" text-anchor="middle">MIX</text>
+
+      <!-- Advertising -->
+      <g>
+        <circle cx="180" cy="120" r="60" fill="#8b2635"/>
+        <text x="180" y="115" font-family="Fraunces" font-size="14" font-weight="700" fill="#faf6ed" text-anchor="middle">Advertising</text>
+        <text x="180" y="135" font-family="JetBrains Mono" font-size="9" fill="#faf6ed" text-anchor="middle">paid · nonpersonal</text>
+        <line x1="230" y1="155" x2="340" y2="195" stroke="#1a2332" stroke-width="1.5"/>
+      </g>
+      <!-- Personal Selling -->
+      <g>
+        <circle cx="620" cy="120" r="60" fill="#6b8e5a"/>
+        <text x="620" y="115" font-family="Fraunces" font-size="13" font-weight="700" fill="#faf6ed" text-anchor="middle">Personal</text>
+        <text x="620" y="130" font-family="Fraunces" font-size="13" font-weight="700" fill="#faf6ed" text-anchor="middle">Selling</text>
+        <text x="620" y="148" font-family="JetBrains Mono" font-size="9" fill="#faf6ed" text-anchor="middle">sales force</text>
+        <line x1="570" y1="155" x2="460" y2="195" stroke="#1a2332" stroke-width="1.5"/>
+      </g>
+      <!-- Sales Promotion -->
+      <g>
+        <circle cx="80" cy="300" r="60" fill="#d4a04a"/>
+        <text x="80" y="295" font-family="Fraunces" font-size="13" font-weight="700" fill="#1a2332" text-anchor="middle">Sales</text>
+        <text x="80" y="310" font-family="Fraunces" font-size="13" font-weight="700" fill="#1a2332" text-anchor="middle">Promotion</text>
+        <text x="80" y="328" font-family="JetBrains Mono" font-size="9" fill="#1a2332" text-anchor="middle">short-term</text>
+        <line x1="140" y1="290" x2="330" y2="235" stroke="#1a2332" stroke-width="1.5"/>
+      </g>
+      <!-- Public Relations -->
+      <g>
+        <circle cx="720" cy="300" r="60" fill="#e07856"/>
+        <text x="720" y="295" font-family="Fraunces" font-size="13" font-weight="700" fill="#faf6ed" text-anchor="middle">Public</text>
+        <text x="720" y="310" font-family="Fraunces" font-size="13" font-weight="700" fill="#faf6ed" text-anchor="middle">Relations</text>
+        <text x="720" y="328" font-family="JetBrains Mono" font-size="9" fill="#faf6ed" text-anchor="middle">publicity · image</text>
+        <line x1="660" y1="290" x2="470" y2="235" stroke="#1a2332" stroke-width="1.5"/>
+      </g>
+      <!-- Direct Marketing -->
+      <g>
+        <circle cx="400" cy="390" r="50" fill="#1a2332"/>
+        <text x="400" y="385" font-family="Fraunces" font-size="13" font-weight="700" fill="#faf6ed" text-anchor="middle">Direct</text>
+        <text x="400" y="400" font-family="Fraunces" font-size="13" font-weight="700" fill="#faf6ed" text-anchor="middle">Marketing</text>
+        <text x="400" y="418" font-family="JetBrains Mono" font-size="9" fill="#d4a04a" text-anchor="middle">targeted · interactive</text>
+        <line x1="400" y1="340" x2="400" y2="290" stroke="#1a2332" stroke-width="1.5"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="concept-grid">
+    <div class="concept"><div class="tag">TOOL 1</div><h4>Advertising</h4><p><strong>Paid form of nonpersonal presentation</strong> & promotion of ideas, goods, or services by an identified sponsor. Reaches geographically dispersed buyers at low cost per exposure.</p></div>
+    <div class="concept"><div class="tag">TOOL 2</div><h4>Sales Promotion</h4><p><strong>Short-term incentives</strong> to encourage the purchase/sale of a product or service. Strong but <em>short-lived</em> effects.</p></div>
+    <div class="concept"><div class="tag">TOOL 3</div><h4>Personal Selling</h4><p><strong>Personal presentation</strong> by the firm's sales force to make sales & build customer relationships. Most effective — but most expensive — tool.</p></div>
+    <div class="concept"><div class="tag">TOOL 4</div><h4>Public Relations (PR)</h4><p>Building good relations with various publics via <strong>favorable publicity</strong>, building up a good corporate image, and handling unfavorable events. Very believable.</p></div>
+    <div class="concept"><div class="tag">TOOL 5</div><h4>Direct Marketing</h4><p><strong>Direct connections</strong> with carefully targeted individual consumers to obtain an immediate response and cultivate lasting customer relationships.</p></div>
+  </div>
+
+  <h3 class="sub">Integrated Marketing Communications (IMC)</h3>
+  <div class="concept">
+    <div class="tag">DEFINITION</div>
+    <h4>IMC</h4>
+    <p>Carefully <strong>integrating and coordinating</strong> the company's many communications channels to deliver a <em>clear, consistent, and compelling message</em> about the organization & its products. Recognize all customer contact points; deliver a consistent positive message at each.</p>
+  </div>
+
+  <h3 class="sub">Push vs. Pull Strategy</h3>
+  <!-- Push vs Pull diagram -->
+  <div class="diagram">
+    <div class="diagram-title">FIGURE 12.2 · PUSH VS. PULL PROMOTION STRATEGY</div>
+    <div class="diagram-heading">Two directions for moving product through the channel</div>
+    <svg viewBox="0 0 800 340" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrowR" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L9,3 z" fill="#8b2635"/>
+        </marker>
+        <marker id="arrowL" markerWidth="10" markerHeight="10" refX="1" refY="3" orient="auto">
+          <path d="M9,0 L9,6 L0,3 z" fill="#6b8e5a"/>
+        </marker>
+      </defs>
+
+      <!-- PUSH -->
+      <text x="400" y="30" font-family="JetBrains Mono" font-size="12" fill="#8b2635" font-weight="700" text-anchor="middle">◀ PUSH STRATEGY ▶</text>
+      <rect x="40" y="50" width="130" height="50" fill="#1a2332"/>
+      <text x="105" y="80" font-family="Fraunces" font-size="14" fill="#faf6ed" text-anchor="middle" font-weight="600">Producer</text>
+      <text x="105" y="115" font-family="JetBrains Mono" font-size="10" fill="#8b2635" text-anchor="middle">producer promotion</text>
+      <line x1="170" y1="75" x2="318" y2="75" stroke="#8b2635" stroke-width="2" marker-end="url(#arrowR)"/>
+
+      <rect x="330" y="50" width="140" height="50" fill="#8b2635"/>
+      <text x="400" y="80" font-family="Fraunces" font-size="14" fill="#faf6ed" text-anchor="middle" font-weight="600">Resellers</text>
+      <text x="400" y="115" font-family="JetBrains Mono" font-size="10" fill="#8b2635" text-anchor="middle">reseller promotion</text>
+      <line x1="470" y1="75" x2="618" y2="75" stroke="#8b2635" stroke-width="2" marker-end="url(#arrowR)"/>
+
+      <rect x="630" y="50" width="130" height="50" fill="#d4a04a" stroke="#1a2332" stroke-width="1.5"/>
+      <text x="695" y="80" font-family="Fraunces" font-size="14" fill="#1a2332" text-anchor="middle" font-weight="600">Consumers</text>
+
+      <text x="400" y="155" font-family="Fraunces" font-size="13" fill="#1a2332" text-anchor="middle" font-style="italic">Sales force + trade promotion "push" the product to the next channel member.</text>
+
+      <!-- Divider -->
+      <line x1="40" y1="175" x2="760" y2="175" stroke="#1a2332" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+      <!-- PULL -->
+      <text x="400" y="200" font-family="JetBrains Mono" font-size="12" fill="#6b8e5a" font-weight="700" text-anchor="middle">◀ PULL STRATEGY ▶</text>
+      <rect x="40" y="220" width="130" height="50" fill="#1a2332"/>
+      <text x="105" y="250" font-family="Fraunces" font-size="14" fill="#faf6ed" text-anchor="middle" font-weight="600">Producer</text>
+
+      <rect x="330" y="220" width="140" height="50" fill="#8b2635"/>
+      <text x="400" y="250" font-family="Fraunces" font-size="14" fill="#faf6ed" text-anchor="middle" font-weight="600">Resellers</text>
+
+      <rect x="630" y="220" width="130" height="50" fill="#d4a04a" stroke="#1a2332" stroke-width="1.5"/>
+      <text x="695" y="250" font-family="Fraunces" font-size="14" fill="#1a2332" text-anchor="middle" font-weight="600">Consumers</text>
+
+      <!-- demand curves from consumers back -->
+      <line x1="630" y1="260" x2="472" y2="260" stroke="#6b8e5a" stroke-width="2" marker-end="url(#arrowL)"/>
+      <line x1="330" y1="260" x2="172" y2="260" stroke="#6b8e5a" stroke-width="2" marker-end="url(#arrowL)"/>
+
+      <!-- consumer promotion arrow from producer to consumer -->
+      <path d="M 105 100 Q 400 140 695 220" fill="none" stroke="#d4a04a" stroke-width="2" stroke-dasharray="4,3"/>
+      <text x="400" y="140" font-family="JetBrains Mono" font-size="9" fill="#b8862e" text-anchor="middle" font-weight="600">producer promotion → final consumers</text>
+
+      <text x="400" y="300" font-family="Fraunces" font-size="13" fill="#1a2332" text-anchor="middle" font-style="italic">Consumer ads & promotion create demand that "pulls" the product through the channel.</text>
+    </svg>
+  </div>
+
+  <h3 class="sub">Advertising Decisions — 4 Key Steps</h3>
+  <div class="process-steps">
+    <div class="step"><div class="step-num">1</div><div class="step-name">Set Objectives</div><div class="step-desc">Inform · persuade · remind.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-name">Set Budget</div><div class="step-desc">Affordable · % of sales · competitive parity · objective-and-task.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-name">Develop Strategy</div><div class="step-desc">Create message · select media.</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-name">Evaluate Campaigns</div><div class="step-desc">Measure communication effects & sales/profit effects.</div></div>
+  </div>
+
+  <h3 class="sub">Advertising Objectives — The 3 Purposes</h3>
+  <div class="concept-grid">
+    <div class="concept"><div class="tag">NEW CATEGORY</div><h4>Informative</h4><p>Heavy at <strong>introduction</strong> of a new-product category. Objective: build <em>primary</em> demand.</p></div>
+    <div class="concept"><div class="tag">COMPETITIVE</div><h4>Persuasive</h4><p>Important as <strong>competition increases</strong>. Objective: build <em>selective</em> demand. Some becomes <em>comparative</em> / <em>attack</em> advertising.</p></div>
+    <div class="concept"><div class="tag">STAY TOP-OF-MIND</div><h4>Reminder</h4><p>Important for <strong>mature products</strong>. Maintains customer relationships & keeps consumers thinking about the product.</p></div>
+  </div>
+
+  <h3 class="sub">Major PR Tools</h3>
+  <p class="body">News · Special events · Written materials · Audiovisual materials · Corporate identity materials · Public service activities · Web sites & social media.</p>
+</section>
+
+<!-- ============ CHAPTER 13 ============ -->
+<section class="chapter" id="ch13">
+  <div class="chapter-header">
+    <div class="chapter-number">13<sub>CHAPTER</sub></div>
+    <div>
+      <h2 class="chapter-title display">Personal Selling & Sales Promotion</h2>
+      <p class="chapter-lead">Face-to-face relationship building, plus short-term incentives that push action.</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Personal Selling</h3>
+  <div class="concept-grid">
+    <div class="concept">
+      <div class="tag">DEFINITION</div>
+      <h4>Personal Selling</h4>
+      <p>Personal presentations by the firm's sales force for the purpose of <strong>making sales</strong> and <strong>building customer relationships</strong>.</p>
+    </div>
+    <div class="concept">
+      <div class="tag">ROLE OF SALESPERSON</div>
+      <h4>Two-Way Bridge</h4>
+      <p>Salespeople are the <strong>link between the company and its customers</strong> — representing the company to customers, and representing customers to the company.</p>
+    </div>
+  </div>
+
+  <h3 class="sub">The Selling Process — 7 Steps</h3>
+  <div class="process-steps">
+    <div class="step"><div class="step-num">1</div><div class="step-name">Prospecting & Qualifying</div><div class="step-desc">Identify potential customers.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-name">Preapproach</div><div class="step-desc">Learn as much as possible about the prospect.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-name">Approach</div><div class="step-desc">Meet the customer for the first time.</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-name">Presentation & Demo</div><div class="step-desc">Tell product story; stress customer benefits.</div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-name">Handling Objections</div><div class="step-desc">Resolve concerns raised by the prospect.</div></div>
+    <div class="step"><div class="step-num">6</div><div class="step-name">Closing</div><div class="step-desc">Ask for the order.</div></div>
+    <div class="step"><div class="step-num">7</div><div class="step-name">Follow-Up</div><div class="step-desc">Ensure satisfaction & repeat business.</div></div>
+  </div>
+
+  <h3 class="sub">Sales Promotion — Definition & Objectives</h3>
+  <div class="concept-grid">
+    <div class="concept">
+      <div class="tag">DEFINITION</div>
+      <h4>Sales Promotion</h4>
+      <p><strong>Short-term incentives</strong> to encourage purchase or sale of a product/service. Used <em>with</em> other promotion mix tools to reinforce product position & build long-term relationships.</p>
+    </div>
+    <div class="concept">
+      <div class="tag">RAPID GROWTH</div>
+      <h4>Why It's Surged</h4>
+      <p>Product managers face pressure to increase sales · competitors use it to differentiate · advertising efficiency has declined · more thrift-oriented consumers.</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Three Target Types of Sales Promotion</h3>
+
+  <div class="flashcards-intro">
+    <div class="icon">!</div>
+    <div>Three audiences = three toolkits. Know which tool targets which audience.</div>
+  </div>
+
+  <h3 class="sub" style="font-size:18px;">① Consumer Promotion Tools</h3>
+  <div class="concept-grid">
+    <div class="concept"><div class="tag">FREE TRIAL</div><h4>Samples</h4><p>Offers of a trial amount of a product.</p></div>
+    <div class="concept"><div class="tag">DISCOUNT CERT</div><h4>Coupons</h4><p>Certificates that save buyers money on specified products.</p></div>
+    <div class="concept"><div class="tag">POST-PURCHASE</div><h4>Cash Refunds / Rebates</h4><p>Price reduction <em>after</em> purchase — manufacturer refunds part of purchase price.</p></div>
+    <div class="concept"><div class="tag">SHELF PRICING</div><h4>Price Packs / Cents-Off</h4><p>Savings off the regular price of a product offered directly on the package.</p></div>
+    <div class="concept"><div class="tag">BONUS ITEM</div><h4>Premiums</h4><p>Goods offered free or at low cost as an incentive to buy a product.</p></div>
+    <div class="concept"><div class="tag">BRANDED ITEMS</div><h4>Advertising Specialties</h4><p>Useful articles imprinted with an advertiser's name/logo (pens, mugs, T-shirts).</p></div>
+    <div class="concept"><div class="tag">IN-STORE</div><h4>POP Promotions</h4><p>Point-of-purchase displays and demonstrations at the point of sale.</p></div>
+    <div class="concept"><div class="tag">CHANCE-BASED</div><h4>Contests, Sweepstakes, Games</h4><p>Give consumers the chance to win something — cash, trips, goods.</p></div>
+    <div class="concept"><div class="tag">EXPERIENTIAL</div><h4>Event Marketing</h4><p>Creating a brand-marketing event, or serving as sole/participating sponsor of events created by others.</p></div>
+  </div>
+
+  <h3 class="sub" style="font-size:18px;">② Trade Promotion Tools</h3>
+  <p class="body">Used to persuade <strong>resellers</strong> to carry a brand, give it shelf space, promote it, and push it to consumers.</p>
+  <p class="body">Contests · premiums · displays · discounts / price-off / off-invoice / off-list · allowances · free goods · <strong>push money</strong> (a.k.a. "spiffs" — cash payments to dealers' salespeople to push the product) · specialty advertising items.</p>
+
+  <h3 class="sub" style="font-size:18px;">③ Business Promotion Tools</h3>
+  <p class="body">Used to generate business leads, stimulate purchases, reward customers, and motivate salespeople.</p>
+  <div class="concept-grid">
+    <div class="concept"><div class="tag">SHOW FLOOR</div><h4>Conventions & Trade Shows</h4><p>Vendors find new leads, contact customers, introduce products, sell more & educate customers.</p></div>
+    <div class="concept"><div class="tag">INTERNAL</div><h4>Sales Contests</h4><p>For salespeople or dealers to motivate them to increase sales performance over a given period.</p></div>
+  </div>
+
+  <h3 class="sub">Developing the Sales Promotion Program · 5 Decisions</h3>
+  <div class="process-steps">
+    <div class="step"><div class="step-num">1</div><div class="step-name">Size of Incentive</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-name">Conditions for Participation</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-name">How to Promote & Distribute</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-name">Length of Promotion</div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-name">Evaluation</div></div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 14 ============ -->
+<section class="chapter" id="ch14">
+  <div class="chapter-header">
+    <div class="chapter-number">14<sub>CHAPTER</sub></div>
+    <div>
+      <h2 class="chapter-title display">Direct & Online Marketing</h2>
+      <p class="chapter-lead">Building direct, one-to-one relationships with carefully targeted consumers.</p>
+    </div>
+  </div>
+
+  <div class="concept">
+    <div class="tag">CORE DEFINITION</div>
+    <h4>Direct Marketing</h4>
+    <p>Connecting directly with <strong>carefully targeted segments or individual consumers</strong>, often on a one-to-one, interactive basis. For many companies (GEICO, Amazon), direct marketing is a <em>complete model for doing business</em>.</p>
+  </div>
+
+  <h3 class="sub">Benefits — Buyers vs. Sellers</h3>
+  <div class="compare">
+    <div class="left">
+      <h4>To Buyers</h4>
+      <ul>
+        <li>Convenient & easy</li>
+        <li>Private</li>
+        <li>Immediate & interactive</li>
+        <li>Access to wealth of products</li>
+        <li>Comparative info on companies, products & competitors</li>
+      </ul>
+    </div>
+    <div class="right">
+      <h4>To Sellers</h4>
+      <ul>
+        <li>Builds customer relationships</li>
+        <li>Low-cost, efficient, speedy alternative to reach markets</li>
+        <li>Online → lower costs, improved efficiency</li>
+        <li>Greater flexibility</li>
+        <li>Access to buyers unreachable through other channels</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="sub">Customer Database — The Foundation</h3>
+  <div class="concept">
+    <div class="tag">KEY CONCEPT</div>
+    <h4>Customer Database</h4>
+    <p>An <strong>organized collection of comprehensive data</strong> about individual customers or prospects — including geographic, demographic, psychographic, and behavioral data. Fuels personalized, customer-triggered promotional messages.</p>
+  </div>
+
+  <h3 class="sub">Forms of Direct Marketing</h3>
+  <div class="concept-grid">
+    <div class="concept"><div class="tag">POSTAL</div><h4>Direct-Mail Marketing</h4><p>Sending an offer, announcement, reminder, or other item <strong>directly to a person at a particular address</strong>. Allows high target selectivity, can be personalized, flexible, easy to measure.</p></div>
+    <div class="concept"><div class="tag">PRINT / DIGITAL</div><h4>Catalog Marketing</h4><p>Marketing through print, video, or digital catalogs. Online catalogs: unlimited merchandise, broader presentation formats, real-time merchandising.</p></div>
+    <div class="concept"><div class="tag">VOICE</div><h4>Telemarketing</h4><p><strong>Outbound:</strong> sell directly to consumers/businesses. <strong>Inbound:</strong> toll-free 800 numbers receive orders from TV/print ads, direct mail, or catalogs.</p></div>
+    <div class="concept"><div class="tag">TV</div><h4>Direct-Response TV (DRTV)</h4><p>Direct-response TV advertising (infomercials) and interactive TV (iTV) advertising.</p></div>
+    <div class="concept"><div class="tag">PHYSICAL · AUTO</div><h4>Kiosk Marketing</h4><p>Product/service information & ordering machines placed in stores, airports, hotels, campuses. Example: Redbox DVD rental kiosks.</p></div>
+    <div class="concept"><div class="tag">WEB</div><h4>Online Marketing</h4><p>Efforts to market products/services and build customer relationships <strong>over the Internet</strong>.</p></div>
+  </div>
+
+  <h3 class="sub">Online Marketing Players</h3>
+  <div class="concept-grid">
+    <div class="concept">
+      <div class="tag">ONLINE ONLY</div>
+      <h4>Click-Only Companies</h4>
+      <p>"Dot-coms" that operate <strong>online only</strong>, with no brick-and-mortar presence. Include e-tailers, search engines, portals, transaction sites, content sites, online social networks. Example: Amazon (historically), Google.</p>
+    </div>
+    <div class="concept">
+      <div class="tag">HYBRID</div>
+      <h4>Click-&-Mortar Companies</h4>
+      <p>Traditional brick-and-mortar companies that have <strong>added online marketing</strong> to their operations. Example: Staples, Walmart, Target.</p>
+    </div>
+  </div>
+
+  <h3 class="sub">The 4 Online Marketing Domains</h3>
+  <div class="diagram">
+    <div class="diagram-title">FIGURE 14.2 · THE 4 ONLINE MARKETING DOMAINS</div>
+    <div class="diagram-heading">Who initiates, and who is being targeted</div>
+    <svg viewBox="0 0 600 440" xmlns="http://www.w3.org/2000/svg">
+      <!-- axes -->
+      <text x="300" y="22" font-family="JetBrains Mono" font-size="11" fill="#1a2332" font-weight="700" text-anchor="middle">TARGETED AT →</text>
+      <text x="160" y="50" font-family="JetBrains Mono" font-size="11" fill="#1a2332" font-weight="700" text-anchor="middle">CONSUMERS</text>
+      <text x="440" y="50" font-family="JetBrains Mono" font-size="11" fill="#1a2332" font-weight="700" text-anchor="middle">BUSINESSES</text>
+      <text x="30" y="180" font-family="JetBrains Mono" font-size="11" fill="#1a2332" font-weight="700" transform="rotate(-90,30,180)">INITIATED BY ↓</text>
+      <text x="50" y="160" font-family="JetBrains Mono" font-size="11" fill="#1a2332" font-weight="700" transform="rotate(-90,50,160)">BUSINESS</text>
+      <text x="50" y="340" font-family="JetBrains Mono" font-size="11" fill="#1a2332" font-weight="700" transform="rotate(-90,50,340)">CONSUMER</text>
+
+      <!-- B2C -->
+      <rect x="80" y="70" width="220" height="140" fill="#8b2635" stroke="#1a2332" stroke-width="1.5"/>
+      <text x="190" y="110" font-family="Fraunces" font-size="26" fill="#faf6ed" text-anchor="middle" font-weight="700">B2C</text>
+      <text x="190" y="138" font-family="JetBrains Mono" font-size="10" fill="#faf6ed" text-anchor="middle">Business-to-Consumer</text>
+      <text x="190" y="170" font-family="Manrope" font-size="11" fill="#faf6ed" text-anchor="middle">Business sells</text>
+      <text x="190" y="185" font-family="Manrope" font-size="11" fill="#faf6ed" text-anchor="middle">directly to consumers</text>
+      <text x="190" y="200" font-family="Manrope" font-size="10" fill="#d4a04a" text-anchor="middle" font-style="italic">e.g., Amazon.com</text>
+
+      <!-- B2B -->
+      <rect x="310" y="70" width="220" height="140" fill="#1a2332" stroke="#1a2332" stroke-width="1.5"/>
+      <text x="420" y="110" font-family="Fraunces" font-size="26" fill="#faf6ed" text-anchor="middle" font-weight="700">B2B</text>
+      <text x="420" y="138" font-family="JetBrains Mono" font-size="10" fill="#faf6ed" text-anchor="middle">Business-to-Business</text>
+      <text x="420" y="170" font-family="Manrope" font-size="11" fill="#faf6ed" text-anchor="middle">Business sells online</text>
+      <text x="420" y="185" font-family="Manrope" font-size="11" fill="#faf6ed" text-anchor="middle">to other businesses</text>
+      <text x="420" y="200" font-family="Manrope" font-size="10" fill="#d4a04a" text-anchor="middle" font-style="italic">e.g., Cisco.com</text>
+
+      <!-- C2C -->
+      <rect x="80" y="225" width="220" height="140" fill="#6b8e5a" stroke="#1a2332" stroke-width="1.5"/>
+      <text x="190" y="265" font-family="Fraunces" font-size="26" fill="#faf6ed" text-anchor="middle" font-weight="700">C2C</text>
+      <text x="190" y="293" font-family="JetBrains Mono" font-size="10" fill="#faf6ed" text-anchor="middle">Consumer-to-Consumer</text>
+      <text x="190" y="325" font-family="Manrope" font-size="11" fill="#faf6ed" text-anchor="middle">Consumers interact,</text>
+      <text x="190" y="340" font-family="Manrope" font-size="11" fill="#faf6ed" text-anchor="middle">exchange goods / info</text>
+      <text x="190" y="355" font-family="Manrope" font-size="10" fill="#d4a04a" text-anchor="middle" font-style="italic">e.g., eBay, Craigslist</text>
+
+      <!-- C2B -->
+      <rect x="310" y="225" width="220" height="140" fill="#d4a04a" stroke="#1a2332" stroke-width="1.5"/>
+      <text x="420" y="265" font-family="Fraunces" font-size="26" fill="#1a2332" text-anchor="middle" font-weight="700">C2B</text>
+      <text x="420" y="293" font-family="JetBrains Mono" font-size="10" fill="#1a2332" text-anchor="middle">Consumer-to-Business</text>
+      <text x="420" y="325" font-family="Manrope" font-size="11" fill="#1a2332" text-anchor="middle">Consumers initiate</text>
+      <text x="420" y="340" font-family="Manrope" font-size="11" fill="#1a2332" text-anchor="middle">exchange with business</text>
+      <text x="420" y="355" font-family="Manrope" font-size="10" fill="#8b2635" text-anchor="middle" font-style="italic">e.g., Priceline.com</text>
+
+      <text x="300" y="405" font-family="Fraunces" font-size="13" fill="#1a2332" text-anchor="middle" font-style="italic">Remember: row tells you WHO STARTED the exchange; column tells you WHO is being targeted.</text>
+    </svg>
+  </div>
+
+  <h3 class="sub">Public Policy & Ethical Issues</h3>
+  <p class="body">Irritation · unfairness · deception & fraud · invasion of privacy. Plus: the <strong>Do Not Call Registry</strong> for telemarketing and regulations on spam (CAN-SPAM Act).</p>
+</section>
+
+<!-- ============ QUIZ SECTION ============ -->
+<section class="quiz-section" id="quiz">
+  <div class="hero-label" style="color: var(--mustard);">★ PRACTICE EXAM · 25 QUESTIONS</div>
+  <h2 class="display">Test <em>yourself.</em></h2>
+  <p class="quiz-lead">Answer all 25 questions, then click <em>Submit</em> to see your score and the correct answer with an explanation for each. You can redo the quiz as many times as you want.</p>
+
+  <div id="quizContainer"></div>
+
+  <button class="quiz-submit" id="submitBtn" onclick="submitQuiz()">Submit Exam →</button>
+  <button class="quiz-submit" id="resetBtn" onclick="resetQuiz()" style="display:none; background:transparent; color:var(--mustard); border-color:var(--mustard); margin-left:12px;">↻ Retake</button>
+
+  <div class="quiz-results" id="quizResults">
+    <div class="score-display" id="scoreDisplay">0<sub> / 25</sub></div>
+    <div class="score-message" id="scoreMessage"></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  MARKETING PRINCIPLES · FINAL EXAM REVIEW<br>
+  BASED ON ARMSTRONG &amp; KOTLER · PRINCIPLES OF MARKETING · 11e · CH. 8–14
+</footer>
+
+<script>
+  /* ============ PROGRESS BAR ============ */
+  function updateProgress() {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = Math.min(100, (window.scrollY / scrollable) * 100);
+    document.getElementById('progressBar').style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress);
+  window.addEventListener('load', updateProgress);
+
+  /* ============ ACTIVE NAV CHIP ============ */
+  const sections = document.querySelectorAll('section.chapter, section.quiz-section');
+  const chips = document.querySelectorAll('nav .chip');
+  function updateActiveChip() {
+    let current = '';
+    sections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if (rect.top <= 120 && rect.bottom >= 120) current = sec.id;
+    });
+    chips.forEach(c => {
+      c.classList.toggle('active', c.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', updateActiveChip);
+
+  /* ============ QUIZ DATA ============ */
+  const questions = [
+    {
+      ch: "CH 8",
+      q: "Which stage of the Product Life Cycle is characterized by peak sales, low cost per customer, and the highest profits?",
+      options: ["Introduction", "Growth", "Maturity", "Decline"],
+      correct: 2,
+      explanation: "Maturity is the peak. Sales plateau, costs are lowest per customer (efficient scale), and profits peak. The strategic response is to modify the market, product, or marketing mix."
+    },
+    {
+      ch: "CH 8",
+      q: "During which stage does advertising aim to build AWARENESS among early adopters and dealers?",
+      options: ["Introduction", "Growth", "Maturity", "Decline"],
+      correct: 0,
+      explanation: "Introduction. Sales are low, few customers exist, and the objective is to create product awareness and trial among innovators."
+    },
+    {
+      ch: "CH 8",
+      q: "The 8-step New Product Development process begins with Idea Generation. What is step 8?",
+      options: ["Test Marketing", "Business Analysis", "Commercialization", "Product Development"],
+      correct: 2,
+      explanation: "Commercialization — launching the new product into the market — is the final step, following Test Marketing in step 7."
+    },
+    {
+      ch: "CH 9",
+      q: "Apple launches the iPhone at a premium price, skimming revenue from buyers willing to pay more before lowering price over time. This is:",
+      options: ["Market-penetration pricing", "Market-skimming pricing", "Cost-plus pricing", "Value-added pricing"],
+      correct: 1,
+      explanation: "Market-skimming sets a high initial price to capture maximum revenue from layers of the market willing to pay more. Works when quality/image supports high price and competitors can't enter easily."
+    },
+    {
+      ch: "CH 9",
+      q: "A razor sold cheaply and replacement blades sold at a premium is a textbook example of:",
+      options: ["Product line pricing", "Optional-product pricing", "Captive-product pricing", "By-product pricing"],
+      correct: 2,
+      explanation: "Captive-product pricing applies to products that MUST be used with a main product — razors & blades, printers & ink, game consoles & games."
+    },
+    {
+      ch: "CH 9",
+      q: "Which of these is NOT one of the three major pricing strategies?",
+      options: ["Customer value-based pricing", "Cost-based pricing", "Competition-based pricing", "Penetration-based pricing"],
+      correct: 3,
+      explanation: "The three major pricing strategies are customer value-based, cost-based, and competition-based. Market-penetration is a new-product pricing strategy, not one of the three majors."
+    },
+    {
+      ch: "CH 9",
+      q: "The price CEILING is set by:",
+      options: ["Product costs", "Customer value perceptions", "Competitor prices", "Government regulation"],
+      correct: 1,
+      explanation: "Customer value perceptions set the price CEILING (above this there's no demand), while product costs set the price FLOOR (below this there's no profit)."
+    },
+    {
+      ch: "CH 10",
+      q: "A manufacturer → wholesaler → retailer → consumer channel has how many intermediary levels?",
+      options: ["1", "2", "3", "4"],
+      correct: 1,
+      explanation: "Two intermediaries (wholesaler and retailer) sit between the producer and the final consumer. The number of channel levels equals the number of intermediary layers."
+    },
+    {
+      ch: "CH 10",
+      q: "Coca-Cola is sold in virtually every possible outlet — supermarkets, vending machines, convenience stores, etc. This illustrates:",
+      options: ["Exclusive distribution", "Selective distribution", "Intensive distribution", "Direct distribution"],
+      correct: 2,
+      explanation: "Intensive distribution stocks the product in as many outlets as possible. It's used for convenience goods where availability is key."
+    },
+    {
+      ch: "CH 10",
+      q: "Conflict between a Ford manufacturer and its Ford dealers would be classified as:",
+      options: ["Horizontal conflict", "Vertical conflict", "Multichannel conflict", "Franchise conflict"],
+      correct: 1,
+      explanation: "Vertical conflict occurs between DIFFERENT levels of the same channel. Horizontal conflict would be between two Ford dealers (same level)."
+    },
+    {
+      ch: "CH 10",
+      q: "A franchise system like McDonald's is a type of:",
+      options: ["Corporate VMS", "Contractual VMS", "Administered VMS", "Horizontal marketing system"],
+      correct: 1,
+      explanation: "Franchise organizations are contractual VMS — independent firms linked through contracts that bring coordinated economies or sales impact."
+    },
+    {
+      ch: "CH 11",
+      q: "Best Buy, a giant store offering a very deep assortment of consumer electronics, is an example of a:",
+      options: ["Department store", "Specialty store", "Category killer", "Warehouse club"],
+      correct: 2,
+      explanation: "Category killer = giant specialty store carrying a very deep assortment of a particular product line. Home Depot, Best Buy, Staples fit here."
+    },
+    {
+      ch: "CH 11",
+      q: "Costco — an off-price retailer that sells a limited selection of brand-name goods at deep discounts to members who pay annual fees — is a:",
+      options: ["Factory outlet", "Warehouse club", "Discount store", "Superstore"],
+      correct: 1,
+      explanation: "Warehouse clubs (Costco, Sam's Club) sell a limited selection at deep discounts to members paying annual fees. Factory outlets sell a manufacturer's surplus/irregular goods."
+    },
+    {
+      ch: "CH 11",
+      q: "A store with a NARROW product line but a DEEP assortment within that line is a:",
+      options: ["Department store", "Specialty store", "Supermarket", "Superstore"],
+      correct: 1,
+      explanation: "Specialty store = narrow line + deep assortment (e.g., Foot Locker for athletic shoes). Department store = wide variety of lines."
+    },
+    {
+      ch: "CH 12",
+      q: "Which of the following is the BEST description of Integrated Marketing Communications (IMC)?",
+      options: [
+        "Using as many different media as possible",
+        "Carefully integrating all communication channels to deliver a clear, consistent message",
+        "Focusing only on advertising and public relations",
+        "Spending equally on each promotion tool"
+      ],
+      correct: 1,
+      explanation: "IMC means carefully integrating and coordinating the company's many communications channels to deliver a clear, consistent, and compelling message about the organization and its products."
+    },
+    {
+      ch: "CH 12",
+      q: "A company spends heavily on consumer advertising to build demand so consumers pressure retailers to stock the product. This is a:",
+      options: ["Push strategy", "Pull strategy", "Hybrid strategy", "Promotional strategy"],
+      correct: 1,
+      explanation: "Pull strategy: spending on consumer advertising/promotion creates demand that pulls the product through the channel. Push strategy uses trade promotion to push product to resellers."
+    },
+    {
+      ch: "CH 12",
+      q: "Reminder advertising is MOST important for:",
+      options: ["New product categories", "Growth-stage products", "Mature products", "Declining products"],
+      correct: 2,
+      explanation: "Reminder advertising is important for mature products — it maintains customer relationships and keeps consumers thinking about the product even when they don't need to be persuaded."
+    },
+    {
+      ch: "CH 12",
+      q: "Which promotion tool is described as 'paid form of nonpersonal presentation and promotion of ideas, goods, or services by an identified sponsor'?",
+      options: ["Personal selling", "Sales promotion", "Advertising", "Public relations"],
+      correct: 2,
+      explanation: "This is the textbook definition of advertising. 'Paid,' 'nonpersonal,' and 'identified sponsor' are the key identifying words."
+    },
+    {
+      ch: "CH 13",
+      q: "In the 7-step selling process, which step comes IMMEDIATELY AFTER 'Handling Objections'?",
+      options: ["Presentation", "Closing", "Follow-up", "Preapproach"],
+      correct: 1,
+      explanation: "The order is: Prospecting → Preapproach → Approach → Presentation → Handling Objections → Closing → Follow-up. Closing comes right after handling objections."
+    },
+    {
+      ch: "CH 13",
+      q: '"Push money" (also called spiffs) — cash payments to dealers\' salespeople — is an example of:',
+      options: ["Consumer promotion", "Trade promotion", "Business promotion", "Sales force compensation"],
+      correct: 1,
+      explanation: "Push money is a trade promotion tool — it targets resellers/their salespeople to push the product through the channel. Trade promotion includes discounts, allowances, free goods, push money, and specialty ads."
+    },
+    {
+      ch: "CH 13",
+      q: "Which of these is a weakness of sales promotion?",
+      options: [
+        "It doesn't attract consumer attention",
+        "It offers weak incentives",
+        "Its effects are short-lived, not good for long-run brand preference",
+        "It can't dramatize product offers"
+      ],
+      correct: 2,
+      explanation: "Sales promotion is strong but short-lived — good at triggering quick response, weak at building long-run brand preference and relationships. That's why it's used WITH other tools, not in isolation."
+    },
+    {
+      ch: "CH 14",
+      q: "eBay, where individuals sell goods to other individuals, is an example of which online marketing domain?",
+      options: ["B2C", "B2B", "C2C", "C2B"],
+      correct: 2,
+      explanation: "C2C (Consumer-to-Consumer) — consumers initiate the exchange and target other consumers. eBay and Craigslist are classic examples."
+    },
+    {
+      ch: "CH 14",
+      q: "Priceline.com, where consumers 'name their own price' and businesses decide whether to accept, is an example of:",
+      options: ["B2C", "B2B", "C2C", "C2B"],
+      correct: 3,
+      explanation: "C2B (Consumer-to-Business). The consumer INITIATES the exchange (offers a price), and the target is a BUSINESS that chooses whether to accept."
+    },
+    {
+      ch: "CH 14",
+      q: "Amazon.com, operating only online with no physical stores, is a classic example of a:",
+      options: ["Click-and-mortar company", "Click-only company", "Brick-and-mortar company", "Franchise company"],
+      correct: 1,
+      explanation: "Click-only companies (dot-coms) operate online only with no brick-and-mortar presence. Click-and-mortar companies are traditional retailers that added online operations."
+    },
+    {
+      ch: "Cross-Chapter",
+      q: "A customer database organized with geographic, demographic, psychographic, and behavioral data is central to which form of marketing?",
+      options: ["Mass advertising", "Direct marketing", "Public relations", "Trade promotion"],
+      correct: 1,
+      explanation: "Customer databases are the foundation of direct marketing — they enable one-to-one, personalized, customer-triggered messages tailored to individual profiles."
+    }
+  ];
+
+  /* ============ RENDER QUIZ ============ */
+  const letters = ['A', 'B', 'C', 'D'];
+  const quizContainer = document.getElementById('quizContainer');
+  questions.forEach((q, idx) => {
+    const div = document.createElement('div');
+    div.className = 'question';
+    div.innerHTML = `
+      <div class="q-num">QUESTION ${String(idx+1).padStart(2,'0')} · ${q.ch}</div>
+      <div class="q-text">${q.q}</div>
+      <div class="options" data-qidx="${idx}">
+        ${q.options.map((opt, i) => `
+          <button class="option" data-choice="${i}" onclick="selectOption(${idx}, ${i})">
+            <span class="letter">${letters[i]}</span><span>${opt}</span>
+          </button>
+        `).join('')}
+      </div>
+      <div class="explanation" id="exp-${idx}">
+        <strong>EXPLANATION</strong>${q.explanation}
+      </div>
+    `;
+    quizContainer.appendChild(div);
+  });
+
+  const userAnswers = new Array(questions.length).fill(null);
+  let submitted = false;
+
+  function selectOption(qIdx, choiceIdx) {
+    if (submitted) return;
+    userAnswers[qIdx] = choiceIdx;
+    const optionsDiv = document.querySelector(`.options[data-qidx="${qIdx}"]`);
+    optionsDiv.querySelectorAll('.option').forEach((btn, i) => {
+      btn.classList.toggle('selected', i === choiceIdx);
+    });
+  }
+
+  function submitQuiz() {
+    if (submitted) return;
+    submitted = true;
+    let score = 0;
+    questions.forEach((q, idx) => {
+      const optionsDiv = document.querySelector(`.options[data-qidx="${idx}"]`);
+      const buttons = optionsDiv.querySelectorAll('.option');
+      buttons.forEach(btn => btn.classList.remove('selected'));
+      buttons.forEach((btn, i) => {
+        if (i === q.correct) btn.classList.add('correct');
+        else if (i === userAnswers[idx]) btn.classList.add('incorrect');
+        btn.disabled = true;
+      });
+      document.getElementById(`exp-${idx}`).classList.add('show');
+      if (userAnswers[idx] === q.correct) score++;
+    });
+
+    document.getElementById('submitBtn').style.display = 'none';
+    document.getElementById('resetBtn').style.display = 'inline-block';
+    document.getElementById('scoreDisplay').innerHTML = `${score}<sub> / 25</sub>`;
+
+    let msg = "";
+    const pct = (score / 25) * 100;
+    if (pct >= 90) msg = "Outstanding. You're ready for the exam — go get it.";
+    else if (pct >= 75) msg = "Solid. Review the questions you missed and you'll be in great shape.";
+    else if (pct >= 60) msg = "Good start. Go back through the explanations and re-read the weak chapters.";
+    else msg = "Time to dig in. Re-read the chapters, use the flashcards, then retake this quiz.";
+    document.getElementById('scoreMessage').textContent = msg;
+    document.getElementById('quizResults').classList.add('show');
+
+    document.getElementById('quizResults').scrollIntoView({behavior:'smooth', block:'center'});
+  }
+
+  function resetQuiz() {
+    submitted = false;
+    userAnswers.fill(null);
+    document.querySelectorAll('.option').forEach(btn => {
+      btn.classList.remove('correct', 'incorrect', 'selected');
+      btn.disabled = false;
+    });
+    document.querySelectorAll('.explanation').forEach(e => e.classList.remove('show'));
+    document.getElementById('submitBtn').style.display = 'inline-block';
+    document.getElementById('resetBtn').style.display = 'none';
+    document.getElementById('quizResults').classList.remove('show');
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+  }
+</script>
+
+</body>
+</html>
